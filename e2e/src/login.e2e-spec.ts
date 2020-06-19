@@ -1,5 +1,6 @@
 import { browser, protractor } from 'protractor';
 import { LoginPage } from './login.po';
+import { DashboardPage } from './dashboard.po';
 
 describe('Login tests', () => {
   let page: LoginPage;
@@ -31,9 +32,9 @@ describe('Login tests', () => {
     page.username.sendKeys('admin');
     page.password.sendKeys('admin');
     page.loginButton.click();
-    browser.sleep(2000);
-    page.navigateToDashboard();
-    browser.sleep(2000);
+    // browser.sleep(4000);
+    const dashboardPage = new DashboardPage();
+    browser.wait(EC.visibilityOf(dashboardPage.title));
     expect(page.dashBoardTitle.getText()).toEqual('Welcome to dashboard!');
     expect(page.dashBoardTitle.isPresent()).toBeTruthy();
   });

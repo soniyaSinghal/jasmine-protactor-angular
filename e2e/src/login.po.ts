@@ -13,6 +13,14 @@ export class LoginPage {
     return element(by.css('p'));
   }
 
+  get passwordLabel() {
+    return element(by.css('.login-field:nth-child(2) label'));
+  }
+
+  get usernameLabel() {
+    return element(by.css('.login-field:nth-child(1) label'));
+  }
+
   get pageTitleText() {
     return element(by.css('h2'));
   }
